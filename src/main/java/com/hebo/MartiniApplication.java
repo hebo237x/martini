@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class IcoWebApplication {
+public class MartiniApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(IcoWebApplication.class, args);
+		SpringApplication.run(MartiniApplication.class, args);
 	}
 }
