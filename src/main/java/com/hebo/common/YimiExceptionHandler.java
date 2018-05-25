@@ -30,20 +30,23 @@ public class YimiExceptionHandler {
     @ExceptionHandler({YimiBizException.class})
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
-    public MartiniResult validHandler(YimiBizException ex){
-        return MartiniResult.buinessError(ex.getCode(),ex.getMessage());
+    public MartiniResult bizHandler(YimiBizException ex) {
+        return MartiniResult.buinessError(ex.getCode(), ex.getMessage());
     }
 
     @ExceptionHandler({MethodArgumentNotValidException.class})
     @ResponseBody
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public MartiniResult validHandler(MethodArgumentNotValidException ex){
+    public MartiniResult validHandler(MethodArgumentNotValidException ex) {
         BindingResult bindingResult = ex.getBindingResult();
         StringBuilder errorMsg = new StringBuilder();
-        List<FieldError> fieldErrorList =  bindingResult.getFieldErrors();
-        if(!CollectionUtils.isEmpty(fieldErrorList)){
-            for (FieldError fieldError : fieldErrorList){
-                errorMsg.append(fieldError.getField()).append(":").append(fieldError.getDefaultMessage());
+        List<FieldError> fieldErrorList = bindingResult.getFieldErrors();
+        if (!CollectionUtils.isEmpty(fieldErrorList)) {
+            for (int i = 0; i < fieldErrorList.size(); i++) {
+                errorMsg.append(fieldErrorList.get(i).getField()).append(":").append(fieldErrorList.get(i).getDefaultMessage());
+                if (i != fieldErrorList.size() - 1) {
+                    errorMsg.append("; ");
+                }
             }
         }
         return MartiniResult.paramError(errorMsg.toString());
@@ -52,7 +55,7 @@ public class YimiExceptionHandler {
     @ExceptionHandler({Exception.class})
     @ResponseBody
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public MartiniResult exceptionHandler(Exception ex){
+    public MartiniResult exceptionHandler(Exception ex) {
         String errCode = String.valueOf(new Date().getTime());
         StringWriter stack = new StringWriter();
         ex.printStackTrace(new PrintWriter(stack));

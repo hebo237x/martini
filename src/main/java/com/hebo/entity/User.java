@@ -1,9 +1,13 @@
 package com.hebo.entity;
 
+import javax.validation.Valid;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by hebo on 2018/4/2.
@@ -16,6 +20,11 @@ public class User implements Serializable{
 
     @NotBlank
     private String clientNo;
+
+    @Valid
+    @NotNull(message = "订单不能为空")
+    @Size(min = 1, message = "orderList必须1个")
+    private List<Order> orderList;
 
     /**
      * 邮箱
@@ -50,5 +59,14 @@ public class User implements Serializable{
 
     public void setClientNo(String clientNo) {
         this.clientNo = clientNo;
+    }
+
+
+    public List<Order> getOrderList() {
+        return orderList;
+    }
+
+    public void setOrderList(List<Order> orderList) {
+        this.orderList = orderList;
     }
 }

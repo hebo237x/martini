@@ -6,13 +6,12 @@ import com.hebo.common.YimiBizException;
 import com.hebo.entity.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.validation.Valid;
 
 /**
  * Created by hebo on 2018/4/2.
@@ -31,7 +30,7 @@ public class UserController extends BaseController{
     }
 
     @RequestMapping(value = "/update",method = RequestMethod.POST)
-    public MartiniResult<User> findUserById(@Valid @RequestBody User user){
+    public MartiniResult<User> findUserById(@Validated @RequestBody User user){
         if (user.getId()==12){
             throw new YimiBizException(ErrorCodeEnum.IDERROR);
         }
