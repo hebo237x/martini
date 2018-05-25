@@ -3,6 +3,8 @@ package com.hebo.common;
 public enum ErrorCodeEnum {
 	
 	SUCCESS(1000, "SUCCESS"),
+	PARAMERROR(9998, "参数错误"),
+	IDERROR(9998, "id不能为12"),
 	FAIL(9999, "SYSTEM ERROR")
 	;
 	

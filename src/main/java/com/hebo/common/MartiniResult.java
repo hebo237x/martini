@@ -29,9 +29,23 @@ public class MartiniResult<T> {
         return new MartiniResult(ErrorCodeEnum.FAIL.getCode(), ErrorCodeEnum.FAIL.getMessage(), null);
     }
 
+    public static <T> MartiniResult systemError(String errorCode) {
+        return new MartiniResult(ErrorCodeEnum.FAIL.getCode(), "系统错误:["+errorCode+"]", null);
+    }
+
+    public static <T> MartiniResult paramError(String msg) {
+        return new MartiniResult(ErrorCodeEnum.PARAMERROR.getCode(), "参数错误:["+msg+"]", null);
+    }
+
+
     public static <T> MartiniResult buinessError(ErrorCodeEnum errorCodeEnum) {
         return new MartiniResult(errorCodeEnum.getCode(), errorCodeEnum.getMessage(), null);
     }
+
+    public static <T> MartiniResult buinessError(int code,String message) {
+        return new MartiniResult(code, message, null);
+    }
+
 
 
     public int getCode() {

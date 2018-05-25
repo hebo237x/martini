@@ -1,6 +1,8 @@
 package com.hebo.controller;
 
+import com.hebo.common.ErrorCodeEnum;
 import com.hebo.common.MartiniResult;
+import com.hebo.common.YimiBizException;
 import com.hebo.entity.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,6 +32,9 @@ public class UserController extends BaseController{
 
     @RequestMapping(value = "/update",method = RequestMethod.POST)
     public MartiniResult<User> findUserById(@Valid @RequestBody User user){
+        if (user.getId()==12){
+            throw new YimiBizException(ErrorCodeEnum.IDERROR);
+        }
         userService.update(user);
         return MartiniResult.success(null);
     }
