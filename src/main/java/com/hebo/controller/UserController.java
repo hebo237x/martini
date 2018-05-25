@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 /**
  * Created by hebo on 2018/4/2.
  */
@@ -27,7 +29,7 @@ public class UserController extends BaseController{
     }
 
     @RequestMapping(value = "/update",method = RequestMethod.POST)
-    public MartiniResult<User> findUserById(@RequestBody User user){
+    public MartiniResult<User> findUserById(@Valid @RequestBody User user){
         userService.update(user);
         return MartiniResult.success(null);
     }

@@ -1,5 +1,8 @@
 package com.hebo.entity;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 /**
@@ -7,10 +10,11 @@ import java.io.Serializable;
  * 用户信息
  */
 public class User implements Serializable{
- /*   @Max(value = 999999,message = "超过最大数值")
-    @Min(value = 10,message = "超过最小数值")*/
+    @Max(value = 999999,message = "超过最大数值")
+    @Min(value = 10,message = "超过最小数值")
     private long id;
 
+    @NotBlank
     private String clientNo;
 
     /**
