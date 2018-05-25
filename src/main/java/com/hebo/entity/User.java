@@ -1,11 +1,14 @@
 package com.hebo.entity;
 
+import java.io.Serializable;
+
 /**
  * Created by hebo on 2018/4/2.
  * 用户信息
  */
-public class User {
-
+public class User implements Serializable{
+ /*   @Max(value = 999999,message = "超过最大数值")
+    @Min(value = 10,message = "超过最小数值")*/
     private long id;
 
     private String clientNo;

@@ -5,6 +5,7 @@ import com.hebo.entity.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,6 +24,12 @@ public class UserController extends BaseController{
         String a = redisUtils.getString("test");
         logger.info("findUserById start:{}",a);
         return MartiniResult.success(userService.findUserById(id));
+    }
+
+    @RequestMapping(value = "/update",method = RequestMethod.POST)
+    public MartiniResult<User> findUserById(@RequestBody User user){
+        userService.update(user);
+        return MartiniResult.success(null);
     }
 
 }

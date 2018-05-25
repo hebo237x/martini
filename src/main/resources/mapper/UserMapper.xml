@@ -3,8 +3,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace必须指向Dao接口 -->
 <mapper namespace="com.hebo.mapper.UserMapper">
-
+    <cache type="com.hebo.common.RedisCache"/>
     <select id="findUserById" resultType="com.hebo.entity.User">
         SELECT * FROM t_user WHERE id = #{id}
     </select>
+
+    <update id="update" parameterType="com.hebo.entity.User">
+        UPDATE t_user SET clientNo = #{clientNo} WHERE id = #{id}
+    </update>
 </mapper>

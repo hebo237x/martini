@@ -22,4 +22,8 @@ public class UserService {
     public User findUserById(long userId){
         return userMapper.findUserById(userId);
     }
+
+    public void update(User user){
+        userMapper.update(user);
+    }
 }

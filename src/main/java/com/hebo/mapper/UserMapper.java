@@ -9,4 +9,6 @@ public interface UserMapper {
 
     User findUserById(@Param("id") long id);
 
+    void update(User user);
+
 }
