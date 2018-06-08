@@ -14,6 +14,7 @@ public class ApplicationConfig {
 
     public void test(){
         LOG.info("test tag");
+        LOG.info("test tag2");
     }
 
 }
