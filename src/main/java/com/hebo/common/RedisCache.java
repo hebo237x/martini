@@ -44,7 +44,7 @@ public class RedisCache implements Cache {
     public void putObject(Object key, Object value) {
         if (value != null) {
             // 向Redis中添加数据，有效时间是2天
-            redisTemplate.opsForValue().set(key.toString(), value, 1, TimeUnit.MINUTES);
+            redisTemplate.opsForValue().set(key.toString(), value, 10, TimeUnit.MINUTES);
         }
     }
 

@@ -1,11 +1,5 @@
 package com.hebo.entity;
 
-import javax.validation.Valid;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.List;
 
@@ -14,16 +8,16 @@ import java.util.List;
  * 用户信息
  */
 public class User implements Serializable{
-    @Max(value = 999999,message = "超过最大数值")
-    @Min(value = 10,message = "超过最小数值")
+   /* @Max(value = 999999,message = "超过最大数值")
+    @Min(value = 10,message = "超过最小数值")*/
     private long id;
 
-    @NotBlank
+   /* @NotBlank*/
     private String clientNo;
 
-    @Valid
+   /* @Valid
     @NotNull(message = "订单不能为空")
-    @Size(min = 1, message = "orderList必须1个")
+    @Size(min = 1, message = "orderList必须1个")*/
     private List<Order> orderList;
 
     /**
