@@ -12,5 +12,8 @@ public class ApplicationConfig {
 
     private static final Logger LOG = LoggerFactory.getLogger(ApplicationConfig.class);
 
+    public void test(){
+        LOG.info("test tag");
+    }
 
 }
