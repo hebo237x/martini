@@ -24,6 +24,8 @@ public class Award {
 
     public String aa;
 
+    public String bb;
+
     public Award(String id, float probability, int count) {
         super();
         this.id = id;
