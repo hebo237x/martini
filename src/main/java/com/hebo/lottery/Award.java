@@ -16,6 +16,8 @@ public class Award {
     /**数量（该类奖品剩余数量）*/
     public int count;
 
+    public String aa;
+
     public Award(String id, float probability, int count) {
         super();
         this.id = id;
