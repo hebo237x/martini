@@ -22,7 +22,7 @@ public class Award {
      */
     public int count;
 
-    public String aa1231;
+    public String aa12314;
 
     public String bb11;
 
