@@ -24,7 +24,7 @@ public class Award {
 
     public String aa1;
 
-    public String bb;
+    public String bb11;
 
     public Award(String id, float probability, int count) {
         super();
